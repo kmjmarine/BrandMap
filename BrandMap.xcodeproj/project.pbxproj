@@ -11,9 +11,12 @@
 		E50A701027C8D97F008B7421 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50A700F27C8D97F008B7421 /* SceneDelegate.swift */; };
 		E50A701727C8D981008B7421 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E50A701627C8D981008B7421 /* Assets.xcassets */; };
 		E50A701A27C8D981008B7421 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E50A701827C8D981008B7421 /* LaunchScreen.storyboard */; };
-		E50A702227C8DB41008B7421 /* ProductListViewContoroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50A702127C8DB41008B7421 /* ProductListViewContoroller.swift */; };
 		E50A702527C8DC86008B7421 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = E50A702427C8DC86008B7421 /* SnapKit */; };
 		E50A702827C8DC95008B7421 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = E50A702727C8DC95008B7421 /* Kingfisher */; };
+		E50A702A27C8DDA3008B7421 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50A702927C8DDA3008B7421 /* Product.swift */; };
+		E50A702C27C8DF2B008B7421 /* ProductListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50A702B27C8DF2B008B7421 /* ProductListViewController.swift */; };
+		E50A702E27C8DFC2008B7421 /* ProductListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50A702D27C8DFC2008B7421 /* ProductListCell.swift */; };
+		E5A4860627CA8D9200C0E145 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5A4860527CA8D9200C0E145 /* ProductDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,7 +26,10 @@
 		E50A701627C8D981008B7421 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E50A701927C8D981008B7421 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E50A701B27C8D981008B7421 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E50A702127C8DB41008B7421 /* ProductListViewContoroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewContoroller.swift; sourceTree = "<group>"; };
+		E50A702927C8DDA3008B7421 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		E50A702B27C8DF2B008B7421 /* ProductListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListViewController.swift; sourceTree = "<group>"; };
+		E50A702D27C8DFC2008B7421 /* ProductListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListCell.swift; sourceTree = "<group>"; };
+		E5A4860527CA8D9200C0E145 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,9 +64,12 @@
 		E50A700C27C8D97F008B7421 /* BrandMap */ = {
 			isa = PBXGroup;
 			children = (
+				E50A702927C8DDA3008B7421 /* Product.swift */,
 				E50A700D27C8D97F008B7421 /* AppDelegate.swift */,
 				E50A700F27C8D97F008B7421 /* SceneDelegate.swift */,
-				E50A702127C8DB41008B7421 /* ProductListViewContoroller.swift */,
+				E50A702B27C8DF2B008B7421 /* ProductListViewController.swift */,
+				E5A4860527CA8D9200C0E145 /* ProductDetailViewController.swift */,
+				E50A702D27C8DFC2008B7421 /* ProductListCell.swift */,
 				E50A701627C8D981008B7421 /* Assets.xcassets */,
 				E50A701827C8D981008B7421 /* LaunchScreen.storyboard */,
 				E50A701B27C8D981008B7421 /* Info.plist */,
@@ -147,8 +156,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E50A700E27C8D97F008B7421 /* AppDelegate.swift in Sources */,
+				E50A702A27C8DDA3008B7421 /* Product.swift in Sources */,
+				E50A702C27C8DF2B008B7421 /* ProductListViewController.swift in Sources */,
 				E50A701027C8D97F008B7421 /* SceneDelegate.swift in Sources */,
-				E50A702227C8DB41008B7421 /* ProductListViewContoroller.swift in Sources */,
+				E50A702E27C8DFC2008B7421 /* ProductListCell.swift in Sources */,
+				E5A4860627CA8D9200C0E145 /* ProductDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
