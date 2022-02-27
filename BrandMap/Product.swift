@@ -9,5 +9,6 @@ import Foundation
 
 struct Product: Decodable {
     let seq: Int?
-    let nameko, nameen, spec, prodsize, boxsize, capacity, launchdate, imageurl: String?
+    let line, channel, nameko, nameen, spec, prodsize, boxsize, capacity, launchdate, type, imageurl: String?
+    let subimageurls: [String]?
 }
