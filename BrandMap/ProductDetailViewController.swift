@@ -34,14 +34,14 @@ final class ProductDetailViewController: UITableViewController {
 //UITableview Datasource, Delegate
 extension ProductDetailViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 8
+        return 6
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
-        case 0:
-            let arrSubImage = [product?.subimageurls]
-            return arrSubImage.count
+        case 3:
+            guard let arrSpec = product?.spec?.split(separator: ",") else { return 0 }
+            return arrSpec.count
         default:
             return 1
         }
@@ -59,18 +59,12 @@ extension ProductDetailViewController {
             let isChannelEmpty = product?.channel?.isEmpty ?? true
             return isChannelEmpty ? nil : "Channel"
         case 3:
-            let isProdSizeEmpty = product?.prodsize?.isEmpty ?? true
-            return isProdSizeEmpty ? nil : "Size"
+            let isProdSizeEmpty = product?.spec?.isEmpty ?? true
+            return isProdSizeEmpty ? nil : "Spec"
         case 4:
-            let isBoxSizeEmpty = product?.boxsize?.isEmpty ?? true
-            return isBoxSizeEmpty ? nil : "Box Size"
-        case 5:
-            let isSpecEmpty = product?.spec?.isEmpty ?? true
-            return isSpecEmpty ? nil : "Spec"
-        case 6:
             let isLaunchDateEmpty = product?.launchdate?.isEmpty ?? true
             return isLaunchDateEmpty ? nil : "Release"
-        case 7:
+        case 5:
             let isTypeEmpty = product?.type?.isEmpty ?? true
             return isTypeEmpty ? nil : "Type"
         default:
@@ -86,12 +80,11 @@ extension ProductDetailViewController {
         
         switch indexPath.section {
         case 0:
-            let arrSubImage = [product?.subimageurls]
+            let subImages = product?.subimageurls ?? ""
+         
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ProductDetailListCell", for: indexPath) as? ProductDetailListCell else { return UITableViewCell() }
             
-            cell.textLabel?.text = arrSubImage[indexPath.row] ?? ""
-            
-//            let imageURL = URL(string: arrSubImage[indexPath.row] ?? "")
-//            UIImageView.kf.setImage(with: imageURL, placeholder: #imageLiteral(resourceName: "beer_icon"))
+            cell.setup(with: subImages)
             
             return cell
         case 1:
@@ -101,22 +94,26 @@ extension ProductDetailViewController {
             cell.textLabel?.text = product?.channel ?? ""
             return cell
         case 3:
-            cell.textLabel?.text = product?.prodsize ?? "no content"
+            guard let arrSpec = product?.spec?.split(separator: ",") else { return cell }
+            cell.textLabel?.text = String(describing: arrSpec[indexPath.row])
             return cell
         case 4:
-            cell.textLabel?.text = product?.boxsize ?? "no content"
-            return cell
-        case 5:
-            cell.textLabel?.text = product?.spec ?? "no content"
-            return cell
-        case 6:
             cell.textLabel?.text = product?.launchdate ?? ""
             return cell
-        case 7:
+        case 5:
             cell.textLabel?.text = product?.type ?? ""
             return cell
         default:
             return cell
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        switch indexPath.section {
+        case 0:
+            return 100.0
+        default:
+            return 40.0
         }
     }
 }
