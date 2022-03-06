@@ -54,7 +54,7 @@ extension ProductListViewController: UITableViewDataSourcePrefetching {
         guard currentPage != 1 else { return }
         
         indexPaths.forEach {
-            if ($0.row + 1) / 25 + 1 == currentPage {
+            if ($0.row + 1) / 50 + 1 == currentPage {
                 self.fetchData(of: currentPage)
             }
         }

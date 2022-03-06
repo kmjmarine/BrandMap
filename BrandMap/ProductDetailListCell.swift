@@ -11,6 +11,7 @@ import SnapKit
 final class ProductDetailListCell: UITableViewCell {
     let scrollView = UIScrollView()
     let contentsView = UIView()
+    var totalImages: Int?
     
     var relatedImageView1: UIImageView = {
         let imageView = UIImageView()
@@ -50,10 +51,9 @@ final class ProductDetailListCell: UITableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        //backgroundColor = .blue
 
-        [ relatedImageView1, relatedImageView2, relatedImageView3, relatedImageView4, relatedImageView5, relatedImageView6 ].forEach { contentView.addSubview($0) }
+        [ relatedImageView1, relatedImageView2, relatedImageView3, relatedImageView4, relatedImageView5, relatedImageView6 ]
+            .forEach { scrollView.addSubview($0) }
         
         scrollView.addSubview(contentsView)
         addSubview(scrollView)
@@ -110,8 +110,13 @@ final class ProductDetailListCell: UITableViewCell {
         }
         
         contentsView.snp.makeConstraints {
+            guard let result = totalImages else { return }
             $0.edges.equalTo(0)
-            $0.width.equalTo((relatedImageView1.image!.size.width * frame.height / relatedImageView1.image!.size.height) * 6 + 30)
+            if result >= 5 {
+                $0.width.equalTo((relatedImageView1.image!.size.width * frame.height / relatedImageView1.image!.size.height) * 4 + 30)
+            } else {
+                $0.width.equalTo((relatedImageView1.image!.size.width * frame.height / relatedImageView1.image!.size.height) + 30)
+            }
             $0.height.equalTo(100.0)
         }
     }
@@ -126,7 +131,8 @@ final class ProductDetailListCell: UITableViewCell {
     
     func setup(with subImages: String) {
         let images = subImages.components(separatedBy: ",")
-        print(images.count)
+        totalImages = images.count
+
         for i in 0...images.count-1 {
             if i == 0 {
                 let imageURL1 = URL(string: images[0])
