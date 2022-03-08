@@ -12,3 +12,5 @@ struct Product: Decodable {
     let line, channel, nameko, nameen, spec, capacity, launchdate, type, imageurl, subimageurls: String?
     //let subimageurls: [String]?
 }
+
+

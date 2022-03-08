@@ -16,10 +16,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         self.window = UIWindow(windowScene: windowScene)
         
-        let rootViewController = ProductListViewController()
+        let rootViewController = TabbarController()
         let rootNavigationController = UINavigationController(rootViewController: rootViewController)
         
         self.window?.rootViewController = rootNavigationController
+        self.window?.backgroundColor = .white
+        self.window?.tintColor = .label
         self.window?.makeKeyAndVisible()
     }
 }
