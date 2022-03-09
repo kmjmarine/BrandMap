@@ -18,7 +18,7 @@ final class ProductListCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        backgroundColor = .systemBackground
+        backgroundColor = .white
         
         let verticalStackView = UIStackView(arrangedSubviews: [koNameLabel, enNameLabel, capacityLabel])
         verticalStackView.axis = .vertical

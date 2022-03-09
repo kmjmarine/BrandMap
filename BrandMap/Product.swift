@@ -10,7 +10,6 @@ import Foundation
 struct Product: Decodable {
     let seq: Int?
     let line, channel, nameko, nameen, spec, capacity, launchdate, type, imageurl, subimageurls: String?
-    //let subimageurls: [String]?
 }
 
 
