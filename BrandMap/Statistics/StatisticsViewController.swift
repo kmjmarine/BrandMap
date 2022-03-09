@@ -66,7 +66,7 @@ final class StatisticsViewContoroller: UIViewController {
         // 리미트라인
         let average = ChartLimitLine(limit: 20.0, label: "평균")
         statisticsView.barChartView.leftAxis.addLimitLine(average)
-        statisticsView.barChartView.backgroundColor = .white
+        statisticsView.barChartView.backgroundColor = .systemBackground
         average.valueTextColor = .red
     }
 }

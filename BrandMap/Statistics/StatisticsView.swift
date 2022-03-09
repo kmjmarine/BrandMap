@@ -52,7 +52,7 @@ final class StatisticsView: UIView {
     
     lazy var barChartView: BarChartView = {
         let chartView = BarChartView()
-        chartView.backgroundColor = .white
+        chartView.backgroundColor = .systemBackground
         
         return chartView
     }()
@@ -70,7 +70,7 @@ final class StatisticsView: UIView {
 
 extension StatisticsView {
     func setUILayout() {
-        backgroundColor = .white
+        backgroundColor = .systemBackground
 
         let verticalStackView1 = UIStackView(arrangedSubviews: [drjartTitleLabel, drjartSKULabel])
         verticalStackView1.axis = .vertical
