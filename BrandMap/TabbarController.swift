@@ -12,9 +12,9 @@ final class TabbarController: UITabBarController {
         super.viewDidLoad()
         
         let statisticsController = UINavigationController(rootViewController: StatisticsViewContoroller())
-        statisticsController.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
+        statisticsController.tabBarItem = UITabBarItem(title: "SKUs Statistics", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
         let productListContoller = UINavigationController(rootViewController: ProductListViewController())
-        productListContoller.tabBarItem = UITabBarItem(title: nil, image: UIImage(systemName: "cross.case"), selectedImage: UIImage(systemName: "cross.case.fill"))
+        productListContoller.tabBarItem = UITabBarItem(title: "BrandMap", image: UIImage(systemName: "cross.case"), selectedImage: UIImage(systemName: "cross.case.fill"))
         
         viewControllers = [statisticsController, productListContoller]
     }
