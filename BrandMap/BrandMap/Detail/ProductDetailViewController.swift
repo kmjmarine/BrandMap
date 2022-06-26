@@ -11,6 +11,13 @@ import Kingfisher
 final class ProductDetailViewController: UITableViewController {
     var product: Product?
     
+    private lazy var rightBarButtonItem = UIBarButtonItem(
+        image: UIImage(systemName: "cart"),
+        style: .plain,
+        target: self,
+        action: #selector(didTapRightBarButtonItem)
+    )
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,6 +35,8 @@ final class ProductDetailViewController: UITableViewController {
         headerView.kf.setImage(with: imageURL, placeholder: UIImage(named: "noimage"))
         
         tableView.tableHeaderView = headerView
+        
+        navigationItem.rightBarButtonItem = rightBarButtonItem
     }
 }
 
@@ -115,5 +124,16 @@ extension ProductDetailViewController {
         default:
             return 40.0
         }
+    }
+    
+    func pushToShopViewContoller() {
+        let productWebViewController = ProductWebViewController(search: product?.nameen ?? "")
+        navigationController?.pushViewController(productWebViewController, animated: true)
+    }
+}
+
+extension ProductDetailViewController {
+    @objc func didTapRightBarButtonItem() {
+        pushToShopViewContoller()
     }
 }
