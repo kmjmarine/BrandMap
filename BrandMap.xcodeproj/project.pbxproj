@@ -13,6 +13,7 @@
 		E50463302868477A000B9FA4 /* ProductDetailListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E504632B2868477A000B9FA4 /* ProductDetailListCell.swift */; };
 		E50463312868477A000B9FA4 /* ProductListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E504632C2868477A000B9FA4 /* ProductListCell.swift */; };
 		E50463322868477A000B9FA4 /* ProductDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E504632D2868477A000B9FA4 /* ProductDetailViewController.swift */; };
+		E504633628684965000B9FA4 /* ProductListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E504633528684965000B9FA4 /* ProductListHeaderView.swift */; };
 		E50A700E27C8D97F008B7421 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50A700D27C8D97F008B7421 /* AppDelegate.swift */; };
 		E50A701027C8D97F008B7421 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50A700F27C8D97F008B7421 /* SceneDelegate.swift */; };
 		E50A701727C8D981008B7421 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E50A701627C8D981008B7421 /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 		E504632B2868477A000B9FA4 /* ProductDetailListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailListCell.swift; sourceTree = "<group>"; };
 		E504632C2868477A000B9FA4 /* ProductListCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductListCell.swift; sourceTree = "<group>"; };
 		E504632D2868477A000B9FA4 /* ProductDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductDetailViewController.swift; sourceTree = "<group>"; };
+		E504633528684965000B9FA4 /* ProductListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductListHeaderView.swift; sourceTree = "<group>"; };
 		E50A700A27C8D97F008B7421 /* BrandMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BrandMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E50A700D27C8D97F008B7421 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E50A700F27C8D97F008B7421 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,36 +80,36 @@
 				9B73A2BB463E6F4DFEECB17A /* Pods-BrandMap.debug.xcconfig */,
 				D0EF6BBA97E4F2945CEA81D9 /* Pods-BrandMap.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
 		E504632828684741000B9FA4 /* BrandMap */ = {
 			isa = PBXGroup;
 			children = (
-				E504633328684781000B9FA4 /* List */,
-				E50463342868478F000B9FA4 /* Detail */,
+				E504633328684781000B9FA4 /* ProductList */,
+				E50463342868478F000B9FA4 /* ProductDetail */,
 			);
 			path = BrandMap;
 			sourceTree = "<group>";
 		};
-		E504633328684781000B9FA4 /* List */ = {
+		E504633328684781000B9FA4 /* ProductList */ = {
 			isa = PBXGroup;
 			children = (
-				E504632C2868477A000B9FA4 /* ProductListCell.swift */,
 				E50463292868477A000B9FA4 /* ProductListViewController.swift */,
+				E504633528684965000B9FA4 /* ProductListHeaderView.swift */,
+				E504632C2868477A000B9FA4 /* ProductListCell.swift */,
 			);
-			path = List;
+			path = ProductList;
 			sourceTree = "<group>";
 		};
-		E50463342868478F000B9FA4 /* Detail */ = {
+		E50463342868478F000B9FA4 /* ProductDetail */ = {
 			isa = PBXGroup;
 			children = (
-				E504632B2868477A000B9FA4 /* ProductDetailListCell.swift */,
 				E504632D2868477A000B9FA4 /* ProductDetailViewController.swift */,
+				E504632B2868477A000B9FA4 /* ProductDetailListCell.swift */,
 				E504632A2868477A000B9FA4 /* ProductWebViewController.swift */,
 			);
-			path = Detail;
+			path = ProductDetail;
 			sourceTree = "<group>";
 		};
 		E50A700127C8D97F008B7421 = {
@@ -206,9 +208,9 @@
 			);
 			mainGroup = E50A700127C8D97F008B7421;
 			packageReferences = (
-				E50A702327C8DC86008B7421 /* XCRemoteSwiftPackageReference "SnapKit.git" */,
-				E50A702627C8DC95008B7421 /* XCRemoteSwiftPackageReference "Kingfisher.git" */,
-				E57DFCE827D4ACC800B3B6D5 /* XCRemoteSwiftPackageReference "Charts.git" */,
+				E50A702327C8DC86008B7421 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				E50A702627C8DC95008B7421 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				E57DFCE827D4ACC800B3B6D5 /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = E50A700B27C8D97F008B7421 /* Products */;
 			projectDirPath = "";
@@ -281,6 +283,7 @@
 				E50A700E27C8D97F008B7421 /* AppDelegate.swift in Sources */,
 				E57DFCEE27D4AE2B00B3B6D5 /* StatisticsView.swift in Sources */,
 				E50463312868477A000B9FA4 /* ProductListCell.swift in Sources */,
+				E504633628684965000B9FA4 /* ProductListHeaderView.swift in Sources */,
 				E5FF437927D668D4005BEF24 /* Statistics.swift in Sources */,
 				E504632F2868477A000B9FA4 /* ProductWebViewController.swift in Sources */,
 				E50463322868477A000B9FA4 /* ProductDetailViewController.swift in Sources */,
@@ -505,7 +508,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E50A702327C8DC86008B7421 /* XCRemoteSwiftPackageReference "SnapKit.git" */ = {
+		E50A702327C8DC86008B7421 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
@@ -513,7 +516,7 @@
 				kind = branch;
 			};
 		};
-		E50A702627C8DC95008B7421 /* XCRemoteSwiftPackageReference "Kingfisher.git" */ = {
+		E50A702627C8DC95008B7421 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
 			requirement = {
@@ -521,7 +524,7 @@
 				kind = branch;
 			};
 		};
-		E57DFCE827D4ACC800B3B6D5 /* XCRemoteSwiftPackageReference "Charts.git" */ = {
+		E57DFCE827D4ACC800B3B6D5 /* XCRemoteSwiftPackageReference "Charts" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/danielgindi/Charts.git";
 			requirement = {
@@ -534,17 +537,17 @@
 /* Begin XCSwiftPackageProductDependency section */
 		E50A702427C8DC86008B7421 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E50A702327C8DC86008B7421 /* XCRemoteSwiftPackageReference "SnapKit.git" */;
+			package = E50A702327C8DC86008B7421 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
 		E50A702727C8DC95008B7421 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E50A702627C8DC95008B7421 /* XCRemoteSwiftPackageReference "Kingfisher.git" */;
+			package = E50A702627C8DC95008B7421 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
 		};
 		E57DFCE927D4ACC800B3B6D5 /* Charts */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E57DFCE827D4ACC800B3B6D5 /* XCRemoteSwiftPackageReference "Charts.git" */;
+			package = E57DFCE827D4ACC800B3B6D5 /* XCRemoteSwiftPackageReference "Charts" */;
 			productName = Charts;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -6,11 +6,15 @@
 //
 
 import UIKit
+import SnapKit
 
 final class ProductListViewController: UITableViewController {
     var productList = [Product]()
     var dataTasks = [URLSessionTask]()
     var currentPage = 1
+    private var currentKeyword = ""
+    
+    private let tags: [String] = ["CICAPAIR", "BIOME", "CRYORUBBER", "RX"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,11 +24,13 @@ final class ProductListViewController: UITableViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
         
         //UITableView
-        tableView.register(ProductListCell.self, forCellReuseIdentifier: "ProductListCell")
+        tableView.register(ProductListCell.self, forCellReuseIdentifier: ProductListCell.identifier)
         tableView.rowHeight = 150
         tableView.prefetchDataSource = self
         
-        fetchData(of: currentPage)
+        tableView.register(ProductListHeaderView.self, forHeaderFooterViewReuseIdentifier: ProductListHeaderView.identifier)
+        
+        fetchData(of: currentPage, keyword: currentKeyword)
     }
 }
 
@@ -42,6 +48,13 @@ extension ProductListViewController: UITableViewDataSourcePrefetching {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: ProductListHeaderView.identifier) as? ProductListHeaderView
+        header?.setup(tags: tags, delegate: self)
+        
+        return header
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedProduct = productList[indexPath.row]
         let detailViewController = ProductDetailViewController()
@@ -54,16 +67,16 @@ extension ProductListViewController: UITableViewDataSourcePrefetching {
         guard currentPage != 1 else { return }
         
         indexPaths.forEach {
-            if ($0.row + 1) / 50 + 1 == currentPage {
-                self.fetchData(of: currentPage)
+            if ($0.row + 1) / 15 + 1 == currentPage {
+                self.fetchData(of: currentPage, keyword: currentKeyword)
             }
         }
     }
 }
 
 private extension ProductListViewController {
-    func fetchData(of page: Int) {
-        guard let url = URL(string: "https://bmap.haveandbe.com/product_json.asp?pg=\(page)"),
+    func fetchData(of page: Int, keyword: String) {
+        guard let url = URL(string: "https://bmap.haveandbe.com/product_json.asp?pg=\(page)&linename=\(keyword)"),
               dataTasks.firstIndex(where: { $0.originalRequest?.url == url }) == nil else { return }
         
         var request = URLRequest(url: url)
@@ -85,7 +98,8 @@ private extension ProductListViewController {
                 self.currentPage += 1
                 
                 DispatchQueue.main.async {
-                    self.tableView.reloadData()
+                    //self.tableView.reloadData()
+                    self.tableView.reloadSections([0], with: .none)
                 }
             case (400...499):
                 print("""
@@ -106,5 +120,17 @@ private extension ProductListViewController {
         }
         dataTask.resume()
         dataTasks.append(dataTask)
+    }
+}
+
+extension ProductListViewController: ProductListHeaderViewDelegate {
+    func didSelectTag(_ selectedIndex: Int) {
+        self.currentKeyword = tags[selectedIndex]
+        
+        self.productList = []
+        self.currentPage = 1
+        
+        //tableView.reloadData()
+        self.fetchData(of: currentPage, keyword: currentKeyword)
     }
 }

@@ -10,6 +10,8 @@ import SnapKit
 import Kingfisher
 
 final class ProductListCell: UITableViewCell {
+    static let identifier = "ProductListCell"
+    
     let prodctImageView = UIImageView()
     let koNameLabel = UILabel()
     let enNameLabel = UILabel()

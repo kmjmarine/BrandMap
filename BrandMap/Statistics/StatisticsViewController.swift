@@ -28,7 +28,7 @@ final class StatisticsViewContoroller: UIViewController {
         title = "SKUs Statistics"
         navigationController?.navigationBar.prefersLargeTitles = true
         
-        statisticsView.barChartView.noDataText = "loading data."
+        statisticsView.barChartView.noDataText = "loading data..."
         statisticsView.barChartView.noDataFont = .systemFont(ofSize: 20)
         statisticsView.barChartView.noDataTextColor = .lightGray
         
