@@ -33,7 +33,7 @@ final class StatisticsViewContoroller: UIViewController {
         statisticsView.barChartView.noDataTextColor = .lightGray
         
         //데이터 바인딩
-        fetchData()
+        self.fetchData()
     }
     
     func configureChartView(dataPoints: [String], values: [Double]) {

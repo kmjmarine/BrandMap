@@ -23,12 +23,14 @@ final class ProductListHeaderView: UITableViewHeaderFooterView {
     private lazy var tagCollectionView = TTGTextTagCollectionView()
     
     func setup(tags: [String], delegate: ProductListHeaderViewDelegate) {
-        self.tags = tags
-        self.delegate = delegate
-        contentView.backgroundColor = .systemBackground
-        
-        setupTagCollectionViewLayout()
-        setupTagCollectionView()
+        if self.tags.count == 0 {
+            self.tags = tags
+            self.delegate = delegate
+            contentView.backgroundColor = .systemBackground
+            
+            setupTagCollectionViewLayout()
+            setupTagCollectionView()
+        }
     }
 }
 
@@ -90,14 +92,12 @@ private extension ProductListHeaderView {
                 textFont: font,
                 textColor: color
             )
-            
             let tag = TTGTextTag(
                 content: tagContents,
                 style: style,
                 selectedContent: selectedTagContents,
                 selectedStyle: selectStyle
             )
-            
             tagCollectionView.addTag(tag)
         }
     }

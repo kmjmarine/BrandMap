@@ -14,7 +14,7 @@ final class ProductListViewController: UITableViewController {
     var currentPage = 1
     private var currentKeyword = ""
     
-    private let tags: [String] = ["CICAPAIR", "BIOME", "CRYORUBBER", "RX"]
+    private let tags: [String] = ["ALL", "CICAPAIR", "BIOME", "CRYORUBBER", "RX"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,8 +98,8 @@ private extension ProductListViewController {
                 self.currentPage += 1
                 
                 DispatchQueue.main.async {
-                    //self.tableView.reloadData()
-                    self.tableView.reloadSections([0], with: .none)
+                    self.tableView.reloadData()
+                    //self.tableView.reloadSections([0], with: .none)
                 }
             case (400...499):
                 print("""
