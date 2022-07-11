@@ -23,14 +23,16 @@ final class ProductListHeaderView: UITableViewHeaderFooterView {
     private lazy var tagCollectionView = TTGTextTagCollectionView()
     
     func setup(tags: [String], delegate: ProductListHeaderViewDelegate) {
-        if self.tags.count == 0 {
+        guard self.tags.isEmpty else { return }
+        //if self.tags.count == 0 {
             self.tags = tags
             self.delegate = delegate
+        
             contentView.backgroundColor = .systemBackground
             
             setupTagCollectionViewLayout()
             setupTagCollectionView()
-        }
+        //}
     }
 }
 
