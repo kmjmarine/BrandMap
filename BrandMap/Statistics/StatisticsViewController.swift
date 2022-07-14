@@ -47,7 +47,7 @@ final class StatisticsViewContoroller: UIViewController {
         let chartDataSet = BarChartDataSet(entries: dataEntries, label: "SKUs")
 
         // 차트 컬러
-        chartDataSet.colors = [.systemBlue, .systemCyan, .systemMint, .systemPink, .systemTeal, .systemBrown, .systemGreen, .systemIndigo, .systemPurple, .systemOrange, .systemYellow, .systemGray2]
+        chartDataSet.colors = [.systemBlue, .systemPink, .systemTeal, .systemFill, .systemTeal, .systemBrown, .systemGreen, .systemIndigo, .systemPurple, .systemOrange, .systemYellow, .systemGray2]
         // 데이터 삽입
         let chartData = BarChartData(dataSet: chartDataSet)
         statisticsView.barChartView.data = chartData
